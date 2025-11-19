@@ -13,8 +13,6 @@ const pool = new Pool({
     password: process.env.DB_PASSWORD || "secret",
     database: process.env.DB_NAME || "mydb",
 });
-
-// Enable CORS
 app.use(
     cors({
         origin: [
@@ -28,7 +26,7 @@ app.use(
     })
 );
 
-// API test route
+
 app.get("/api", (req, res) => {
     res.json({
         message: "Hello from Backend!",
