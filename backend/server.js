@@ -58,6 +58,11 @@ app.get("/db", async (req, res) => {
         });
     }
 });
+app.use(cors({
+    origin: ["https://tp-docker-cicd-fers.vercel.app"],
+    methods: ["GET", "POST", "OPTIONS"],
+    allowedHeaders: ["Content-Type"],
+}));
 
 // Start server
 app.listen(PORT, () => {
