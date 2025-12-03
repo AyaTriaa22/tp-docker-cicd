@@ -21,14 +21,14 @@
         async function fetchData() {
             try {
                 // Fetch API
-                const apiResponse = await fetch(`${BACKEND_URL}/api`);
+                const apiResponse = await fetch(`http://localhost:10000/api`);
                 if (!apiResponse.ok) throw new Error("API request failed");
                 const apiData = await apiResponse.json();
                 document.getElementById("api-response").innerText =
                     JSON.stringify(apiData, null, 2);
 
                 // Fetch DB
-                const dbResponse = await fetch(`${BACKEND_URL}/db`);
+                const dbResponse = await fetch(`http://localhost:10000/db`);
                 if (!dbResponse.ok) throw new Error("Database request failed");
                 const dbData = await dbResponse.json();
                 document.getElementById("db-response").innerText =
