@@ -27,6 +27,10 @@ app.use(
 );
 
 
+app.get("/", (req, res) => {
+    res.send("Backend is running! Visit /api or /db");
+});
+
 app.get("/api", (req, res) => {
     res.json({
         message: "Hello from Backend!",
