@@ -16,17 +16,19 @@
     </div>
 
     <script>
+        const BACKEND_URL = "https://tp-devops1.onrender.com"; // URL de ton backend Render
+
         async function fetchData() {
             try {
                 // Fetch API
-                const apiResponse = await fetch("http://localhost:3000/api");
+                const apiResponse = await fetch(`${BACKEND_URL}/api`);
                 if (!apiResponse.ok) throw new Error("API request failed");
                 const apiData = await apiResponse.json();
                 document.getElementById("api-response").innerText =
                     JSON.stringify(apiData, null, 2);
 
                 // Fetch DB
-                const dbResponse = await fetch("http://localhost:3000/db");
+                const dbResponse = await fetch(`${BACKEND_URL}/db`);
                 if (!dbResponse.ok) throw new Error("Database request failed");
                 const dbData = await dbResponse.json();
                 document.getElementById("db-response").innerText =
@@ -40,8 +42,8 @@
             }
         }
 
+        // Attendre un peu avant de fetch pour être sûr que tout est chargé
         setTimeout(fetchData, 1000);
     </script>
 </body>
 </html>
-
